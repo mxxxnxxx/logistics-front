@@ -1,8 +1,38 @@
 {
-  "extends": ["next", "prettier", "plugin:tailwind/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "plugins": [
+    "import",
+    "unused-imports"
+  ],
   "rules": {
-    "import/prefer-default-export": "off",
-    "no-console": "warn",
-    "no-var": "error"
+    "@typescript-eslint/no-unused-vars": "off",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always", // import groups の間 1行あける
+        "pathGroupsExcludedImportTypes": [
+          "builtin"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        } // 大文字小文字関係なくアルファベット順にしたい
+      }
+    ]
   }
 }
