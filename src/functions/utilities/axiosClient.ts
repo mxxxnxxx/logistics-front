@@ -1,8 +1,8 @@
 import Axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import cookies from 'nookies'
 
-const jwt = cookies.get('jwt')
-const lang = cookies.get('lang')
+// const jwt = cookies.get('jwt')
+// const lang = cookies.get('lang')
 const NODE_ENV = process.env.NODE_ENV!
 
 export type Errors = {
@@ -14,11 +14,11 @@ export type Errors = {
 
 /* eslint-disable no-param-reassign */
 const useAuthRequestInterceptor = (config: AxiosRequestConfig) => {
-  if (jwt) {
-    config.headers!.authorization = `Bearer ${jwt}`
-  }
-  config.headers!.Accept = 'application/json'
-  config.headers!['X-UMFW-LANG'] = lang ?? 'jpn'
+  // if (jwt) {
+  //   config.headers!.authorization = `Bearer ${jwt}`
+  // }
+  // config.headers!.Accept = 'application/json'
+  // config.headers!['X-UMFW-LANG'] = lang ?? 'jpn'
   return config
 }
 
@@ -53,10 +53,10 @@ axios.interceptors.response.use(
     if (url === '/api/login') {
       return Promise.reject(error.response)
     }
-    if (status === 401) {
-      const isJapanese = !lang || lang === 'jpn'
-      window.location.href = isJapanese ? '/login' : '/en/login'
-    }
+    // if (status === 401) {
+    //   const isJapanese = !lang || lang === 'jpn'
+    //   window.location.href = isJapanese ? '/login' : '/en/login'
+    // }
 
     return Promise.reject(error.response)
   }

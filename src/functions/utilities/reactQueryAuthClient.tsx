@@ -1,7 +1,6 @@
 import { initReactQueryAuth } from 'react-query-auth'
 import { NextPageContext } from 'next'
 import { setCookie, destroyCookie } from 'nookies'
-import { Loading } from '../../components/dom/uis'
 import { getLogin, getLogout, getAuthUser } from '../apis'
 import { AuthUser } from '../apis/auth/authMe'
 import { AccessToken } from '../apis/auth/login'
@@ -22,16 +21,16 @@ export type LoginResponse = {
 
 const handleUserResponse = (res: LoginResponse) => {
     const { access_token } = res
-    setCookie('jwt', access_token)
+    // setCookie('jwt', access_token)
     return access_token
 }
 const loadUser = async () => {
-    // tokenの有無の確認
-    if (cookies.get('jwt')) {
-        // tokenの有効期限の確認
-        const data = await getAuthUser()
-        return data
-    }
+    // // tokenの有無の確認
+    // if (cookies.get('jwt')) {
+    //     // tokenの有効期限の確認
+    //     const data = await getAuthUser()
+    //     return data
+    // }
     return null
 }
 const loginFn = async (params: LoginRequest) => {
@@ -47,7 +46,7 @@ const registerFn = async (params: LoginRequest) => {
 
 const logoutFn = async () => {
     await getLogout()
-    destroyCookie('jwt')
+    // destroyCookie('jwt')
 }
 
 // NOTE:LoaderComponentを使うためにjsx,tsxファイルにする必要がある
@@ -57,9 +56,9 @@ const authConfig = {
     loginFn,
     registerFn,
     logoutFn,
-    LoaderComponent() {
-        return <Loading />
-    },
+    // LoaderComponent() {
+    //     return <Loading />
+    // },
 }
 
 // NOTE:AuthUser | null | string 非同期関数であることが前提
