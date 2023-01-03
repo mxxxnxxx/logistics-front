@@ -10,14 +10,21 @@
     "node": ">=14"
   },
   "dependencies": {
+    "@emotion/css": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@react-three/drei": "^9.40.0",
     "@react-three/fiber": "^8.9.0",
+    "axios": "^1.2.2",
     "glsl-random": "^0.0.5",
     "next": "^13.0.1",
     "next-pwa": "^5.6.0",
+    "nookies": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-merge-refs": "^2.0.1",
+    "react-query": "^3.39.2",
+    "react-query-auth": "^1.1.0",
     "three": "^0.146.0",
     "three-stdlib": "^2.17.3"
   },

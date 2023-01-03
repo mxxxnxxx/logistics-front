@@ -1,9 +1,14 @@
 {
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "eslint.validate": ["javascript"],
-  "eslint.workingDirectories": [{ "mode": "auto" }]
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true, // 文字入力行の自動フォーマット有効
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // デフォルトフォーマッターをPrettierに指定
+    "eslint.validate": ["javascript"],
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "search.useIgnoreFiles": true,
+    "search.useGlobalIgnoreFiles": false
 }
