@@ -7,5 +7,6 @@ WORKDIR /usr/src/app
 COPY ./ ./
 RUN apk update && apk add bash
 RUN npm install
+RUN yarn install
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]
